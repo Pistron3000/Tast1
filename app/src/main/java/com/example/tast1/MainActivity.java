@@ -1,5 +1,7 @@
 package com.example.tast1;
 
+import static com.example.tast1.Reverse.reverse;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,8 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView textView;
     //private Button btn_convert;
 
-    Reverse reverse = new Reverse();
-    reverse.reverseWords()
+
 
 
 
@@ -42,22 +43,28 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        editText1.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                textView.setText(charSequence);
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
+        String str = editText1.getText().toString();
+        char[] charArray = str.toCharArray();
+        reverse(charArray);
+        String revStr = new String(charArray);
 
 
-            }
-        });
+            editText1.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                    textView.setText(charSequence);
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+
+
+                }
+            });
+        }
     }
-}
